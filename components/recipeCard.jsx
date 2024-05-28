@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Card, CardContent, Typography, CardMedia } from '@mui/material';
-import './App.css';
+import '../src/App.css';
 
 function RecipeCard({ meal }) {
   const mealDBUrl = `https://www.themealdb.com/meal/${meal.idMeal}`;
