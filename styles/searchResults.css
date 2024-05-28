@@ -1,0 +1,37 @@
+.results-card-container {
+    display: inline-flex;
+    justify-content: flex-start;
+    padding: 10px;
+}
+
+.results-card {
+    background-color: #FBD1A2 !important;
+    max-width: 300px;
+    margin-bottom: 20px;
+    max-height: 600px;
+}
+
+.recipe-title {
+    font-size: 1.5em !important;
+    font-weight: bold !important;
+    padding-bottom: 0px;
+}
+
+.recipe-image {
+    max-width: 98%;
+    height: auto;
+    max-height: 400px;
+    padding: 10px 0px 10px 2px;
+    object-fit: contain;
+}
+
+#root {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+.button {
+    margin-top: 20px;
+}

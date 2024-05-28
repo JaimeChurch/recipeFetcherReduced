@@ -27,9 +27,9 @@
 
 .recipe-image {
   max-width: 100%;
-  height: auto;   
-  padding: 10px, 10px, 10px, 10px;
-  object-fit: contain; 
+  height: auto;
+  padding: 10px 10px 10px 10px;
+  object-fit: contain;
 }
 
 .recipe-link {
