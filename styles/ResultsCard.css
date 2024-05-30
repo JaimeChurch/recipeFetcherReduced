@@ -7,23 +7,28 @@
 .results-card {
     background-color: #FBD1A2 !important;
     max-width: 300px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     max-height: 600px;
 }
 
-.recipe-title {
-    font-size: 1.5em !important;
+.results-title {
+    font-size: 1.3em !important;
     font-weight: bold !important;
     padding-bottom: 0px;
 }
 
-.recipe-image {
+.results-image {
     max-width: 98%;
     height: auto;
     max-height: 400px;
     padding: 10px 0px 10px 2px;
     object-fit: contain;
 }
+
+.results-category {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
 
 #root {
     max-width: 1280px;

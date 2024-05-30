@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Card, CardContent, Typography, CardMedia } from '@mui/material';
-import '../../styles/searchResults.css';
+import { Link } from 'react-router-dom';
+import '../../styles/ResultsCard.css';
 
 function ResultsCard({ meal }) {
   const mealDBUrl = `https://www.themealdb.com/meal/${meal.idMeal}`;
@@ -11,18 +12,18 @@ function ResultsCard({ meal }) {
     <div className="results-card-container">
       <Card className="results-card">
         <CardContent>
-          {/* title */}
-          <Typography className="recipe-title">
-            {meal.strMeal}
-          </Typography>
-          {/* image */}
-          <CardMedia
-            component="img"
-            alt={meal.strMeal}
-            className="recipe-image"
-            image={meal.strMealThumb}
-          />
-          <Typography>
+        <Link to={`/recipe/${meal.idMeal}`} className="recipe-link">
+            <Typography className="results-title">
+              {meal.strMeal}
+            </Typography>
+            <CardMedia
+              component="img"
+              alt={meal.strMeal}
+              className="results-image"
+              image={meal.strMealThumb}
+            />
+          </Link>
+          <Typography className="results-category">
             {meal.strCategory} - {meal.strArea}
           </Typography>
         </CardContent>

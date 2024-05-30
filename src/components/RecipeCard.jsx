@@ -1,11 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Card, CardContent, Typography, CardMedia } from '@mui/material';
-import '../../styles/App.css';
+import { Card, CardContent, Typography } from '@mui/material';
+import '../../styles/RecipeCard.css';
 
 function RecipeCard({ meal }) {
   const mealDBUrl = `https://www.themealdb.com/meal/${meal.idMeal}`;
   const externalUrl = meal.strSource || '#';
+
+  const ingredients = [];
+  for (let i = 1; i <= 20; i++) {
+    const ingredient = meal[`strIngredient${i}`];
+    const measurement = meal[`strMeasure${i}`];
+    if (ingredient) {
+      ingredients.push({ ingredient, measurement });
+    }
+  }
 
   return (
     <div className="recipe-card-container">
@@ -16,14 +25,28 @@ function RecipeCard({ meal }) {
             {meal.strMeal}
           </Typography>
           {/* image */}
-          <CardMedia
-            component="img"
-            alt={meal.strMeal}
-            className="recipe-image"
-            image={meal.strMealThumb}
-          />
-          <Typography>
+          <div className="recipe-image-container">
+            <img
+              alt={meal.strMeal}
+              className="recipe-image"
+              src={meal.strMealThumb}
+            />
+          </div>
+          <Typography className="recipe-category">
             {meal.strCategory} - {meal.strArea}
+          </Typography>
+          <Typography className='recipe-ingredients-title'>
+            Ingredients
+          </Typography>
+          <ul className='recipe-ingredients'>
+            {ingredients.map((ingredient, index) => (
+              <li key={index}>
+                {ingredient.ingredient} : {ingredient.measurement}
+              </li>
+            ))}
+          </ul>
+          <Typography className='recipe-instructions-title'>
+            Instructions
           </Typography>
           <Typography className='recipe-instructions'>
             {meal.strInstructions}
@@ -49,6 +72,9 @@ RecipeCard.propTypes = {
     strMealThumb: PropTypes.string.isRequired,
     strInstructions: PropTypes.string.isRequired,
     idMeal: PropTypes.string.isRequired,
+    strCategory: PropTypes.string,
+    strArea: PropTypes.string,
+    strSource: PropTypes.string,
   }).isRequired,
 };
 

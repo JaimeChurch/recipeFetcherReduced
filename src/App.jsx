@@ -4,7 +4,7 @@ import FetchButton from './components/FetchButton';
 import NavBar from './components/NavBar';
 import RecipeCard from './components/RecipeCard';
 import SearchResults from './components/SearchResults';
-import '../styles/App.css';
+import RecipePage from './components/RecipePage';
 
 function App() {
   const [result, setResult] = useState(null);
@@ -56,6 +56,7 @@ function App() {
           </div>
         } />
         <Route path="/results" element={<SearchResults results={searchResults} />} />
+        <Route path="/recipe/:idMeal" element={<RecipePage />} />
       </Routes>
     </Router>
   );

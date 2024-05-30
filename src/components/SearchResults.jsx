@@ -1,6 +1,5 @@
 import React from 'react';
 import ResultsCard from './ResultsCard';
-import '../../styles/searchResults.css';
 
 const SearchResults = ({ results }) => {
   console.log('SearchResults results:', results);
