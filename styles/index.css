@@ -13,14 +13,15 @@ body {
   min-height: 100vh;
 }
 
-nav{
+nav {
   display: flex;
   justify-content: left;
 }
 
-nav a{
+nav a {
   margin-top: 10px;
   padding-left: 30px;
+  font-size: 120%;
 }
 
 h1 {
