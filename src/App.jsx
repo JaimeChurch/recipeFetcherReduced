@@ -5,6 +5,8 @@ import NavBar from './components/NavBar';
 import RecipeCard from './components/RecipeCard';
 import SearchResults from './components/SearchResults';
 import RecipePage from './components/RecipePage';
+import BrowseAllRecipes from './components/BrowseAllRecipes';
+
 
 function App() {
   const [result, setResult] = useState(null);
@@ -57,6 +59,7 @@ function App() {
         } />
         <Route path="/results" element={<SearchResults results={searchResults} />} />
         <Route path="/recipe/:idMeal" element={<RecipePage />} />
+        <Route path="/browse-all" element={<BrowseAllRecipes />} />
       </Routes>
     </Router>
   );

@@ -32,6 +32,7 @@ function RecipeCard({ meal }) {
               src={meal.strMealThumb}
             />
           </div>
+           {/* Category */}
           <Typography className="recipe-category">
             {meal.strCategory} - {meal.strArea}
           </Typography>

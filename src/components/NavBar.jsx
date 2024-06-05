@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import BasicTextFields from './TextField';
 import SearchButton from './SearchButton';
 
@@ -26,12 +26,12 @@ const NavBar = ({ onSearch }) => {
 
     return (
         <nav>
-            <a href="http://localhost:5173/">Home</a>
-            <a href="#">Browse by Ingredient</a>
-            <a href="#">Browse by Meal Type</a>
-            <a href="#">Browse all Recipes</a>
+            <Link to="/">Home</Link>
+            <Link to="#">Browse by Ingredient</Link>
+            <Link to="#">Browse by Meal Type</Link>
+            <Link to="/browse-all">Browse all Recipes</Link>
             <div style={{ display: 'flex', alignItems: 'center', marginLeft: 'auto' }}>
-            <BasicTextFields onInputChange={handleInputChange} onKeyDown={handleKeyDown} />
+                <BasicTextFields onInputChange={handleInputChange} onKeyDown={handleKeyDown} />
                 <SearchButton onSearch={handleSearchClick} />
             </div>
         </nav>
