@@ -6,8 +6,7 @@ import RecipeCard from './components/RecipeCard';
 import SearchResults from './components/SearchResults';
 import RecipePage from './components/RecipePage';
 import BrowseAllRecipes from './components/BrowseAllRecipes';
-
-
+import BrowseCategory from './components/BrowseCategory';
 function App() {
   const [result, setResult] = useState(null);
   const [searchResults, setSearchResults] = useState(null);
@@ -38,7 +37,7 @@ function App() {
         const allMatches = [...exactMatches, ...partialMatches.filter(pm => !exactMatches.some(em => em.idMeal === pm.idMeal))];
         setSearchResults(allMatches);
       } else {
-        setSearchResults(null); // Reset search results if no data or meals are found
+        setSearchResults(null);
       }
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -59,6 +58,7 @@ function App() {
         } />
         <Route path="/results" element={<SearchResults results={searchResults} />} />
         <Route path="/recipe/:idMeal" element={<RecipePage />} />
+        <Route path="/browse-by-category" element={<BrowseCategory />} />
         <Route path="/browse-all" element={<BrowseAllRecipes />} />
       </Routes>
     </Router>

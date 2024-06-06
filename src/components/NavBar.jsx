@@ -28,7 +28,7 @@ const NavBar = ({ onSearch }) => {
         <nav>
             <Link to="/">Home</Link>
             <Link to="#">Browse by Ingredient</Link>
-            <Link to="#">Browse by Category</Link>
+            <Link to="/browse-by-category">Browse by Category</Link>
             <Link to="/browse-all">Browse all Recipes</Link>
             <div style={{ display: 'flex', alignItems: 'center', marginLeft: 'auto' }}>
                 <BasicTextFields onInputChange={handleInputChange} onKeyDown={handleKeyDown} />

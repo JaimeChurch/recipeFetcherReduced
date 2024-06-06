@@ -13,7 +13,13 @@ const BrowseAllRecipes = () => {
             const response = await fetch(url);
             const data = await response.json();
             if (data.meals) {
-                setRecipes(prevRecipes => [...prevRecipes, ...data.meals]);
+                setRecipes(prevRecipes => {
+                    // Filter out duplicates
+                    const newMeals = data.meals.filter(
+                        newMeal => !prevRecipes.some(existingMeal => existingMeal.idMeal === newMeal.idMeal)
+                    );
+                    return [...prevRecipes, ...newMeals];
+                });
             }
         } catch (error) {
             console.error('Error fetching data:', error);
@@ -35,7 +41,7 @@ const BrowseAllRecipes = () => {
             <h1>All Recipes</h1>
             {recipes.length > 0 ? (
                 recipes.map((meal) => (
-                    <ResultsCard key={meal.idMeal} meal={meal} />
+                    <ResultsCard key={meal.idMeal} item={meal} /> 
                 ))
             ) : (
                 <p>No results found</p>
