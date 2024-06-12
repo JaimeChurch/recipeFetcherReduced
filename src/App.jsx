@@ -7,6 +7,10 @@ import SearchResults from './components/SearchResults';
 import RecipePage from './components/RecipePage';
 import BrowseAllRecipes from './components/BrowseAllRecipes';
 import BrowseCategory from './components/BrowseCategory';
+import BrowseCountry from './components/BrowseCountry';
+import CategoryRecipes from './components/CategoryRecipes';
+import CountryRecipes from './components/CountryRecipes';
+
 function App() {
   const [result, setResult] = useState(null);
   const [searchResults, setSearchResults] = useState(null);
@@ -60,6 +64,9 @@ function App() {
         <Route path="/recipe/:idMeal" element={<RecipePage />} />
         <Route path="/browse-by-category" element={<BrowseCategory />} />
         <Route path="/browse-all" element={<BrowseAllRecipes />} />
+        <Route path="/category/:category" element={<CategoryRecipes />} />
+        <Route path="/browse-by-country" element={<BrowseCountry />} />
+        <Route path="/country/:country" element={<CountryRecipes />} />
       </Routes>
     </Router>
   );

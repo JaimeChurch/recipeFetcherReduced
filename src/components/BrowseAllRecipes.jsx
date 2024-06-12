@@ -26,6 +26,7 @@ const BrowseAllRecipes = () => {
         }
     }, []);
 
+    //Fetches recipes by first letter. Increments letterIndex.
     useEffect(() => {
         if (letterIndex < alphabet.length) {
             setLoading(true);

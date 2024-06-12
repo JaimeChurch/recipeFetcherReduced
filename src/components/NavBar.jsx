@@ -26,14 +26,26 @@ const NavBar = ({ onSearch }) => {
 
     return (
         <nav>
-            <Link to="/">Home</Link>
-            <Link to="#">Browse by Ingredient</Link>
-            <Link to="/browse-by-category">Browse by Category</Link>
-            <Link to="/browse-all">Browse all Recipes</Link>
-            <div style={{ display: 'flex', alignItems: 'center', marginLeft: 'auto' }}>
-                <BasicTextFields onInputChange={handleInputChange} onKeyDown={handleKeyDown} />
-                <SearchButton onSearch={handleSearchClick} />
-            </div>
+            <ul>
+                <li>
+                    <Link to="/">Home</Link>
+                </li>
+                <li>
+                    <Link to="/browse-by-category">Browse by Category</Link>
+                </li>
+                <li>
+                    <Link to="/browse-by-country">Browse by Country</Link> 
+                </li>
+                <li>
+                    <Link to="/browse-all">Browse all Recipes</Link>
+                </li>
+                <li>
+                    <div style={{ display: 'flex', alignItems: 'center', marginLeft: 'auto' }}>
+                        <BasicTextFields onInputChange={handleInputChange} onKeyDown={handleKeyDown} />
+                        <SearchButton onSearch={handleSearchClick} />
+                    </div>
+                </li>
+            </ul>
         </nav>
     );
 };

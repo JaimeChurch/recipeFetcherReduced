@@ -13,19 +13,32 @@ body {
   min-height: 100vh;
 }
 
-nav {
-  display: flex;
-  justify-content: left;
+a{
+  color: blue;
 }
 
-nav a {
-  margin-top: 10px;
-  padding-left: 30px;
-  font-size: 120%;
+nav a{
+  color:  rgba(255, 255, 255, 0.87);
 }
+
+nav ul{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav li {
+  font-size: 120%;
+  align-content: center;
+  list-style: none;
+  padding-left: 10px;
+}
+
+
 
 h1 {
   font-size: 3.2em;
   line-height: .5;
   text-align: center;
+  margin-top: 1em;
 }

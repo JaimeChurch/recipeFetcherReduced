@@ -7,7 +7,7 @@ const SearchResults = ({ results }) => {
     <div>
       <h1>Search Results</h1>
       {results && results.length > 0 ? (
-        results.map((meal) => <ResultsCard key={meal.idMeal} meal={meal} />)
+        results.map((meal) => <ResultsCard key={meal.idMeal} item={meal} />)
       ) : (
         <p>No results found</p>
       )}

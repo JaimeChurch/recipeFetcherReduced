@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import ResultsCard from './ResultsCard';
 
 const BrowseCategory = () => {
@@ -31,7 +32,9 @@ const BrowseCategory = () => {
             {loading && <p>Loading...</p>}
             {categories.length > 0 ? (
                 categories.map((category) => (
-                    <ResultsCard key={category.idCategory} item={category} />
+                    <Link key={category.idCategory} to={`/category/${category.strCategory}`}>
+                        <ResultsCard item={category} />
+                    </Link>
                 ))
             ) : (
                 <p>No results found</p>
