@@ -1,4 +1,3 @@
-// ResultsCard.jsx
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Card, CardContent, Typography, CardMedia } from '@mui/material';
@@ -10,14 +9,19 @@ function ResultsCard({ item, isCountry, thumbnail }) {
     return null;
   }
 
+  // Creates title based on wether item is a meal, category or country.
   const isCategory = item.idCategory !== undefined;
   const title = isCountry ? (
+    //Executes if item is country.
     <Link to={`/country/${item.strArea}`} className="results-link">
       {item.strArea}
     </Link>
-  ) : (isCategory ? item.strCategory : item.strMeal);
+  ) : (isCategory ? item.strCategory : item.strMeal); // If item is not country, checks wether it is a category or meal.
+
+  // Constructs link and image URL based on type
   const link = isCategory ? `/category/${item.strCategory}` : `/recipe/${item.idMeal}`;
   const image = thumbnail || (isCategory ? item.strCategoryThumb : item.strMealThumb);
+
   return (
     <div className="results-card-container">
       <Card className="results-card">

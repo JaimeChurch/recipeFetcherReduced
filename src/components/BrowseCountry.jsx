@@ -7,6 +7,7 @@ const BrowseCountry = () => {
     const [thumbnails, setThumbnails] = useState({});
     const [loading, setLoading] = useState(false);
 
+    // Fetch the list of countries
     const fetchCountries = async () => {
         const url = `https://www.themealdb.com/api/json/v1/1/list.php?a=list`;
         try {
@@ -23,6 +24,7 @@ const BrowseCountry = () => {
         }
     };
 
+    // Fetch the thumbnail of the first recipe for a given country
     const fetchFirstRecipeThumbnail = async (country) => {
         const url = `https://www.themealdb.com/api/json/v1/1/filter.php?a=${country}`;
         try {
@@ -37,10 +39,12 @@ const BrowseCountry = () => {
         return null;
     };
 
+    // Calls fetchCountries when page loads. Empty dependency array ensures it only runs once. 
     useEffect(() => {
         fetchCountries();
     }, []);
 
+    // Fetch thumbnails for each country. Runs for each country.
     useEffect(() => {
         const fetchThumbnails = async () => {
             const thumbnailsPromises = countries.map(async (country) => {

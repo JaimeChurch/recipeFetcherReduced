@@ -12,21 +12,25 @@ import CategoryRecipes from './components/CategoryRecipes';
 import CountryRecipes from './components/CountryRecipes';
 
 function App() {
+  // Holds fetched recipe
   const [result, setResult] = useState(null);
+  // Holds search results
   const [searchResults, setSearchResults] = useState(null);
 
+  // Fetches random recipe
   const handleFetch = async () => {
     const url = 'https://www.themealdb.com/api/json/v1/1/random.php';
     try {
       const response = await fetch(url);
       const data = await response.json();
       console.log('Fetched random recipe:', data);
-      setResult(data);
+      setResult(data); // Store the fetched recipe in state
     } catch (error) {
       console.error('Error fetching data:', error);
     }
   };
 
+  // Handles searching for recipe
   const handleSearch = async (searchTerm) => {
     const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchTerm}`;
     try {
@@ -34,14 +38,17 @@ function App() {
       const data = await response.json();
       console.log('Search results:', data);
 
+      // Check if the response contains meals
       if (data && data.meals) {
         const lowerCaseSearchTerm = searchTerm.toLowerCase();
+        // Filter for partial and exact matches
         const partialMatches = data.meals.filter(meal => meal.strMeal.toLowerCase().includes(lowerCaseSearchTerm));
         const exactMatches = data.meals.filter(meal => meal.strMeal.toLowerCase() === lowerCaseSearchTerm);
+        // Combine exact matches and partial matches, removing duplicates
         const allMatches = [...exactMatches, ...partialMatches.filter(pm => !exactMatches.some(em => em.idMeal === pm.idMeal))];
-        setSearchResults(allMatches);
+        setSearchResults(allMatches); // Store the search results in state
       } else {
-        setSearchResults(null);
+        setSearchResults(null); // No results found
       }
     } catch (error) {
       console.error('Error fetching data:', error);

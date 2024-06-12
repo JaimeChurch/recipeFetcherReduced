@@ -7,6 +7,7 @@ const BrowseAllRecipes = () => {
     const [letterIndex, setLetterIndex] = useState(0);
     const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
 
+    // Fetch recipes by first letter.
     const fetchRecipes = useCallback(async (letter) => {
         const url = `https://www.themealdb.com/api/json/v1/1/search.php?f=${letter}`;
         try {
@@ -26,7 +27,8 @@ const BrowseAllRecipes = () => {
         }
     }, []);
 
-    //Fetches recipes by first letter. Increments letterIndex.
+    // Triggers the fetchRecipes function when letterIndex changes. 
+    // Increments the letterIndex after each fetch.
     useEffect(() => {
         if (letterIndex < alphabet.length) {
             setLoading(true);

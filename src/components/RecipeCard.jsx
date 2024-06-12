@@ -4,10 +4,13 @@ import { Card, CardContent, Typography } from '@mui/material';
 import '../../styles/RecipeCard.css';
 
 function RecipeCard({ meal }) {
+  // Construct URLs for mealdb and external source
   const mealDBUrl = `https://www.themealdb.com/meal/${meal.idMeal}`;
   const externalUrl = meal.strSource || '#';
 
+  // Extract ingredients and measurements
   const ingredients = [];
+  // Max ingredients in API response is 20.
   for (let i = 1; i <= 20; i++) {
     const ingredient = meal[`strIngredient${i}`];
     const measurement = meal[`strMeasure${i}`];

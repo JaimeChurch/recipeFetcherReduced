@@ -7,6 +7,7 @@ const CountryRecipes = () => {
     const [recipes, setRecipes] = useState([]);
     const [loading, setLoading] = useState(false);
 
+    // Fetch recipes by country
     const fetchRecipesByCountry = async (country) => {
         const url = `https://www.themealdb.com/api/json/v1/1/filter.php?a=${country}`;
         try {
@@ -20,6 +21,7 @@ const CountryRecipes = () => {
         }
     };
 
+    // Fetch recipes when the country parameter changes
     useEffect(() => {
         setLoading(true);
         fetchRecipesByCountry(country).then(() => {
